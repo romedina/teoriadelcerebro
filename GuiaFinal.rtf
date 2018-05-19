@@ -1,0 +1,531 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 ArialMT;\f1\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww19020\viewh14400\viewkind0
+\deftab720
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 # Guia Final
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 #neuroinformatica
+\f1\fs24 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 1. **Describe el m\'e9todo de descenso por gradiente \'bfda tres ejemplos en donde se usa?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 El m\'e9todo busca m\'ednimos locales de manera iterativa, a partir del gradiente. Inicia en un punto aleatorio, y calcula el gradiente en ese punto, y se mueve en la direcci\'f3n del gradiente. Qu\'e9 tanto se mueve, depende de un valor (tasa de aprendizaje) y eventualmente llega a alg\'fan m\'ednimo local. 
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 El descenso por gradiente se usa para:
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	* Minimizar funciones
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	* Actualizar pesos en una red neuronal usando backpropagation
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	* Regresi\'f3n lineal
+\f1\fs24 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 2. **\'bfQu\'e9 es la tase a de aprendizaje? \'bfQue valores se deben usar?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 Es el tama\'f1o del paso que se da en el descenso por gradiente. Si se toma un valor muy grande, podemos caer en el caso donde rebotamos y no caemos en el m\'ednimo, sino que pasamos de un lado a otro. Si es muy peque\'f1o, el algoritmo puede tardar mucho en converger. Se usan valores al rededor de 0.01
+\f1\fs24 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 3. **Describe el pre procesamiento que debe existir en una regresi\'f3n lineal y en una red neuronal para poder ajustar un par\'e1bola**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 Si los datos siguen una par\'e1bola, para poder volver la relaci\'f3n lineal, hay que aplicarle ra\'edz cuadrada a los datos de la respuesta (y), o elevar al cuadrado los \'a0datos de entrada (x).
+\f1\fs24 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 4. **\'bfCu\'e1ndo utilizo la soluci\'f3n anal\'edtica de la regresi\'f3n lineal y cu\'e1ndo el algoritmo de descenso por gradiente?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 Cuando tienes un n\'famero grande de caracter\'edsticas usas el descenso por gradiente, porque la soluci\'f3n anal\'edtica es muy lenta, ya que requiere calcular la inversa de XTX y es O(N^3)
+\f1\fs24 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 5. **Que es una funci\'f3n de activaci\'f3n. Describe tres de ellas. \'bfCu\'e1ndo uso cada una?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 Para capas de salida e intermedias, se pueden usar:
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	* Lineal: `y=Wx+b` Usada para la media de una gausiana, la covariant debe ser positiva definida 
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	* Sigmoide: Para respuestas binarias.
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	* Softmax: Para respuestas multinomials. 
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 Para capas intermedias, tambi\'e9n podemos usar:
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	* RELU: es 0 en los negativos, y luego lineal. Tambi\'e9n hay leaky RELU, parametric RELU, Randomized RELU
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	* Logistic sigmoid, and tangente hiperbolica: La sigmoide no es recomendada, porque se satura, y por ello la tan es mejor.
+\f1\fs24 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 6. **\'bfPor qu\'e9 no puedo utilizar una regresi\'f3n lineal para predicci\'f3n de una clasificaci\'f3n binaria?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 Porque una linea no aproxima correctamente los valores en un espacio de clasificaci\'f3n. La regresi\'f3n lineal es adecuada cuando el rango de la variable respuesta est\'e1 en los Reales.
+\f1\fs24 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 7. **Deriva la ecuaci\'f3n de la linea que divide una clasificaci\'f3n binaria a partir de dos caracter\'edsticas**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 El modelo generalizado de regresi\'f3n log\'edstica esta dado por:
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 [image:FEFED5CF-3A4D-43A0-A831-564B880520FB-6307-000038449E4E6905/IMG_1358.jpg]
+\f1\fs24 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 La separaci\'f3n de los valores est\'e1 dada por `Theta^T X >=0 \'a0-> y=1 ` Entonces, la l\'ednea, en un espacio de dos caracter\'edsticas esta dada por:
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 `Theta_0 + Theta_1*X_1 + Theta_2*X_2 `
+\f1\fs24 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 8. **\'bfS\'f3lo puede dividirse el espacio de clasificaci\'f3n con lineas rectas con una regresi\'f3n log\'edstica o softmax? (S\'ed o no y por qu\'e9)**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667  No, en un modelo generalizado, la funci\'f3n puede definir otros espacios que no est\'e9n dados por l\'edneas necesariamente. En el caso de una log\'edstica, por ejemplo, podr\'edamos separar tambi\'e9n por una cuadr\'e1tica, o un c\'edrculo si agregamos t\'e9rminos cuarticos a los t\'e9rminos lineales..
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 `Theta_0 + Theta_1*X_1 + Theta_2*X_2 + Theta_3*(X_1)^2 + Theta_4*(X_2)^2 `
+\f1\fs24 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 9. **\'bfPor que no puedo usar la misma funci\'f3n de costo en una regresi\'f3n lineal y una log\'edstica?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 Porque si us\'e1ramos el error cuadr\'e1tico medio, dado que tenemos como valor \'93estimado\'94 el resultado de una sigmoide, la funci\'f3n de costo resultante es no convexa. Esto provocar\'eda que al tratar de minimizarlo, pudi\'e9ramos caer en m\'ednimos locales y dif\'edcilmente llegar al m\'ednimo global. Es por ello, que la funci\'f3n de costo se transforma para asegurar convexidad.
+\f1\fs24 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 10. **\'bfQu\'e9 diferencia hay entre una clasificaci\'f3n uno vs. el resto y una softmax?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	La funci\'f3n de activaci\'f3n de la \'faltima capa. En la clasificaci\'f3n uno vs el resto, la activaci\'f3n es un escal\'f3n, y por lo tanto, el resultado es una indicadora de clase. Por otro lado, la activaci\'f3n de la \'faltima capa en la softmax es una sigmoide, lo que nos da probabilidades de pertenencia.
+\f1\fs24 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 11. **\'bfC\'f3mo se evita el sobre ajuste?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 Una manera ser\'eda tener muchos datos o reduciendo el n\'famero de variables del modelo. Pero si esto no es posible, se puede hacer regularizaci\'f3n. Este proceso consiste en disminuir la magnitud de los par\'e1metros. Tener par\'e1metros muy grandes puede provocar que se est\'e9 aprendiendo los datos de entrenamiento, y esto no es lo que queremos.
+\f1\fs24 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 12. **\'bfQu\'e9 es regularizaci\'f3n? \'bfC\'f3mo se realiza en regresiones y c\'f3mo en redes neuronales?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	La regularizaci\'f3n nos sirve para no permitir que los par\'e1metros crezcan demasiado. Esto funciona agregando a la funci\'f3n objetivo un t\'e9rmino referente a los par\'e1metros. Este t\'e9rmino puede ser restar la suma de los par\'e1metros, para castigar a la funci\'f3n por tener par\'e1metros muy grandes. Esta suma puede estar ponderada por un par\'e1metro de regularizaci\'f3n, al modificar el par\'e1metro, estaremos ajustando nuestros datos m\'e1s o menos, dependiendo del tama\'f1o.
+\f1\fs24 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 13. **\'bfPor qu\'e9 no es una buena idea utilizar una regresi\'f3n log\'edstica para clasificar im\'e1genes?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	Porque en una imagen, el n\'famero de caracter\'edsticas crece mucho, y la clasificaci\'f3n probablemente es no lineal. Esto genera que el n\'famero de par\'e1metros crezca mucho. Si se tiene una imagen de 50x50 pixeles, y se utilizara un polinomio de grado 2 para la separaci\'f3n, tendr\'edamos 3.1 millones de par\'e1metros, el cual se vuelve imposible de estimar, tanto por la cantidad de datos necesaria para poderlo ajustar, como por el poder de c\'f3mputo necesario.
+\f1\fs24 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 14. **\'bfC\'f3mo se relacionan las regresiones log\'edsticas y las redes neuronales?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 La regresi\'f3n log\'edstica, puede modelarse con una red neuronal, con solo una capa de entrada, y una de salida, donde la de salida tiene una funci\'f3n de activaci\'f3n log\'edstica. \'a0(1/1 + e^-x)
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 15. **\'bfQu\'e9 diferencias existen entre la funci\'f3n de activaci\'f3n para resolver problemas de regresi\'f3n, clasificaci\'f3n binaria y clasificaci\'f3n muticlase?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	para regresi\'f3n, es lineal, para binaria es sigmoide para multiclase es softmax.
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 16. **\'bfQue es una gr\'e1fica de Hinton? \'bfPara qu\'e9 las puedo utilizar?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 Hinton diagrams are useful for visualizing the values of a 2D array (e.g.
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 a weight matrix): Positi,ve and negative values are represented by white and
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 black squares, respectively, and the size of each square represents the
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 magnitude of each value.
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 Useful for Viewing connection strengths in neural networks
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 17. **\'bfPor qu\'e9 s\'ed puedo inicializar los pesos de una regresi\'f3n log\'edstica en cero y los de una red neuronal no?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	Por la manera en la que se hace el descenso por gradiente. En una regresi\'f3n log\'edstica, se usa el gradiente de una funci\'f3n de costo, sin embargo, en una red neuronal, necesitamos usar backpropagation. Si los pesos iniciales son 0, no podemos decidir a quien asignarle m\'e1s o menos valor. Matem\'e1ticamente, las neuronas no son distinguibles.
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 Adem\'e1s: \'a0neural networks tend to get stuck in local minima, so it's a good idea to give them many different starting values. You can't do that if they all start at zero.
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 Second, if the neurons start with the same weights, then all the neurons will follow the same gradient, and will always end up doing the same thing as one another.
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 18. **Menciona una regla de como inicializar los pesos de una red neuronal que involucre el n\'famero de entradas y salidas que conectan dichos pesos**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	Los pesos se inicializan uniformes(0,1)
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 19. **Explica el racional detr\'e1s del algoritmo de retropropagaci\'f3n utilizando un grado computacional**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 En una regresi\'f3n lineal se utiliza el ECM para disminuir el error, pero en una red se tiene que hacer una modificaci\'f3n al algoritmo.
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	Si consideramos la expresi\'f3n e=(a+b)*(b+1) podemos reescribirla como c = a+b, d = b+1, e = c*d y podemos representarlo como un grafo, entre aristas podemos calcular la derivada de las aristas de e hacia atr\'e1s y obtenemos la derivada de la salida con respecto a todos. En s\'edntesis backpropagation es un m\'e9todo \'f3ptimo de calcular derivadas y con el cual podemos minimizar el error.
+\f1\fs24 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 20. **\'bfQu\'e9 son las redes convolucionales?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	Consisten en multiples cpas de filtros de una o mas dimensi\'f3n.
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 Las redes neuronales convolucionales consisten en m\'faltiples capas de \'93filtros\'94 de una o m\'e1s dimensiones que se encargan de obtener diferentes caracter\'edsticas en los diferentes \'93filtros\'94. Est\'e1s inspiradas en el preprocesamiento visual. La convoluci\'f3n es una integral que expresa la cantidad de superposici\'f3n de una funci\'f3n g mientras se desplaza sobre otra funci\'f3n f. 
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 21. **\'bfEn que parte del cerebro se inspiraron para crear las redes convolucionales?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	Geniculado lateral. Est\'e1n inspiradas en el preprocesamiento visual del cerebro. Geniculados Laterales. 
+\f1\fs24 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f0\fs29\fsmilli14667 \cf2 22. **\'bfQu\'e9 es el kernel en una red convolucional?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	Podemos pensar que las im\'e1genes son funciones bidimensionales, varias transformaciones de im\'e1genes son convoluciones de una imagen con un kernel. El kernel obtiene caracter\'edsticas distintas para cada transformaci\'f3n. Un kernel es similar a un \'93filtro\'94.
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 23. **\'bfTodas las redes convolucionales utilizan la convoluci\'f3n?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	Si, aunque quiz\'e1 no en el estricto sentido matem\'e1tico. Se les llama convolucionales, por usar como activaci\'f3n a la consolaci\'f3n o a alguna modificaci\'f3n de la convoluci\'f3n
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 24. **Explica las diferencias entre las redes convolucionales y las redes neuronales tradicionales utilizando el concepto de conectividad**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 Las redes convolucionales no conectan todas las neuronas contra todas 
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 25. **\'bfPor que requerimos m\'e1s capas en una red convolucional?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 Porque, si nos quedaremos simplemente con las 2 capas que est\'e1n conectadas en cruz, lo que obtendr\'edamos al final de la segunda capa, solo ha alcanzado a ver una fracci\'f3n del espacio de los datos. Necesitamos al menos una tercera capa que logre sintetizar la informaci\'f3n de las 2 capas anteriores. Y, posiblemente necesitemos mas de una para que logre aprender m\'e1s.
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 26. **\'bfQue es lo que hace la capa de pooling? \'bfQue tipo de funciones se aplican?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	Una capa t\'edpica de una red convolucional tiene 3 etapas. En la primera, se hacen varias convocaciones en paralelo, y se obtiene un conjunto de activaciones lineales. En la segunda etapa, cada activaci\'f3n linea se pasa por una activaci\'f3n no lineal (etapa de detecci\'f3n.) En la tercera etapa, se hace pooling. El pooling reemplaza el output de la red en cierta ubicaci\'f3n con una estad\'edstica de resumen. Por ejemplo, el m\'e1ximo, el promedio, la norma L2 o un promedio ponderado basado en la distancia a un pixel central.
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 El pooling ayuda a hacer la representaci\'f3n invariable a peque\'f1as traslaciones en el input. Esto es \'fatil si nos interesa saber que algo est\'e1 presente, y no d\'f3nde est\'e1 presente.
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 27. **Explica que es stride en las capas de pooling. \'bfPor qu\'e9 sirve para disminuir la dimensionalidad?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	Si queremos brincarnos porciones del kernel para reducir el costo computacional, podemos pensar en reducir el tama\'f1o de la muestra que vamos a presentar a la funci\'f3n de consolaci\'f3n. Si queremos muestra solamente cada \'93s\'94 pixeles en una direcci\'f3n del output, entonces definimos a \'93s\'94 como el stride de la convoluci\'f3n con muestreo reducido.
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 28. **Qu\'e9 diferencia hay entre una red neuronal tradicional y una recurrente**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	En una red tradicional no se permiten ciclos entre las elementos de las red, en una recurrente si.
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 29. **\'bfCon qu\'e9 algoritmo se entrenan las redes recurrente?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	BPTT
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 30. **\'bfQu\'e9 podemos abstraer con las redes convolucionales? \'bfQu\'e9 podemos abstraer con las redes recurrentes? \'bfPor qu\'e9 se pueden dar esas abstracciones?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 31. **\'bfPor qu\'e9 se dice que las redes tradicionales ajustan funciones y las recurrentes ajustan programas?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	Porque se puede pensar que los lazos que existen en las recurrentes pueden servir como memoria, lo cual nos permite aproximar a un programa en el sentido computacional. (Esta respuesta es dudosa)
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 32. **\'bfPor qu\'e9 no se pueden utilizar las redes recurrentes para aprender relaciones de largo plazo?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	Porque sufren del problema de \'93vanishing gradient\'94
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 33. **\'bfQu\'e9 es TensorFlow? Describe los pasos para desarrollar un modelo en TensorFlow.** 
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 Es una biblioteca de programas para calculo num\'e9rico. Esta basado en grafos que representan la
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 secuencia de c\'e1lculos a ejecutar para conseguir un fin y en la utilizaci\'f3n de motores de
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 optimizaci\'f3n de los mismos.
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 Los pasos son definir los nodos participantes, sus caracteristicas, conexiones, operaciones (entre
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 ellas la optimizaci\'f3n). Posteriormente se debe ejecutar el grafo.
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 34. **Si utilizara una regresi\'f3n softmax para clasificar rostros \'bfQu\'e9 representar\'edan los pesos?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 35. **\'bfQu\'e9 es deep learning? \'bfPor qu\'e9 se dice que automatiza la ingenier\'eda de caracter\'edsticas? \'bfC\'f3mo lo hace?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 Es la utilizaci\'f3n de redes neuronales multicapa para resolver problemas de aprendizaje
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 utilizando aprendizaje por refuerzo y algoritmo e-greedy y la exploracion/explotacion. La
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 utilizaci\'f3n de cada capa produce la identificaci\'f3n de una caracter\'edstica, juntando capas se puede
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 aprender a reconocer conjuntos de caracter\'edsticas.
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 36. **\'bfPor qu\'e9 hasta ahora tienen \'e9xito las redes de m\'faltiples capas?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 Por capacidades de computo limitadas y poco accesibles en el pasado.
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 37. **\'bfQu\'e9 es t-SNE? \'bfCu\'e1ndo puedo utilizarlo?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 Es un tecnica para reduccion de dimensionalidad muy util para la visualizacion de informacion
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 de alta dimensionalidad.
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 38. **\'bfQue es una autocodificador?** 
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 Es una red neuronal que invierte el efecto de una red neuronal bajo estudio. Es decir dada la
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 salida de una red neuronal, un autocodificador permite reproducir la entrada.
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 39. **\'bfQu\'e9 es un vector de pensamiento? \'bfpara qu\'e9 puedo utilizarlo?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	[Thought Vectors, Deep Learning & the Future of AI - Deeplearning4j: Open-source, Distributed Deep Learning for the JVM](https://deeplearning4j.org/thoughtvectors)
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 40. **\'bfQu\'e9 es aprendizaje por refuerzo?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 Es el aprendizaje basado en la utilizaci\'f3n de acciones y recompensas. En un proceso de RL el
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 acto de aprendizaje se divide en pasos llamados estados, se estudian las acciones posibles en
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 esos estados y sus posibles recompensas que pueden ser inmediatas o no. El objetivo de este
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 aprendizaje es entonces maximizar la recompensas obtenida.
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 41. **\'bfC\'f3mo reutilizo el conocimiento en una red?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 El conocimiento de una red neuronal radica en su topologia y en los pesos de las neuronas que
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 lo componen. Si conocemos estos dos elementos, podemos utilizarlos para reproducir los
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 valores de un clasificador y por lo tanto reutilizar el conocimiento.
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 42. **Diferencias entre aprendizaje por refuerzo con y sin modelo.**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 En el AR sin modelo, no hay conocimiento inicial del ambiente, el agente interact\'faa con el
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 ambiente y mejora su pol\'edtica. En el AR con modelo hay conocimiento inicial del ambiente, al agente raealiza calculos con su ambiente sin interaccion externa, el agente mejora su pol\'edtica en
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 un proceso propia de planeacion con enfoques de deliveracion, razonamiento, introspeccion,
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 reflexi\'f3n y pensamiento.
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 43. **\'bfQu\'e9 m\'e9todos para calcular la funci\'f3n de valor utilizan bootstraping? \'bfPor qu\'e9?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 44. **\'bfQu\'e9 m\'e9todos para calcular la funci\'f3n de valor utilizan muestreo? \'bfPor qu\'e9?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 45. **\'bfC\'f3mo puedo resolver que los estados que describen el problema sean continuos?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 46. **\'bfEn que difiere la aproximaci\'f3n con una regresi\'f3n o red neuronal de la funci\'f3n de valor y el de una tabla de b\'fasqueda? \'bfQu\'e9 diferencias hay en el entrenamiento?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 	Cuando tienes una tabla, tienes un problema de b\'fasqueda, y en una red, cuando esta posible tabla ha crecido demasiado, no podr\'edas llenar todos los valores de la tabla, entonces aproximas una funci\'f3n para que sirva como tabla. En el entrenamiento, para la tabla, tendr\'edas que haber experimentado todos los estados posibles, mientras que hacerlo con una red neuronal te permite inferir los estados que nunca has experimentado.
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 47. **\'bfC\'f3mo aumento la velocidad de los algoritmos de aprendizaje por refuerzo?** 
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 48. **\'bfQu\'e9 codifican las neuronas espejo?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 La imitaci\'f3n de acciones de individuos parecidos.
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 49. **\'bfQu\'e9 funci\'f3n realizan los ganglios basales?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 Los ganglios basales son estructuras de tejido gris ubicadas en el base del cerebro
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 interconectadas con la corteza cerebral,el t\'e1lamo y el tronco del cerebro que se asocian con
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 movimientos voluntarios realizados de forma principalmente inconsciente, esto es, aquellos que
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 involucran al cuerpo entero en tareas rutinariamente o cotidianas.
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 50. **Explica por qu\'e9 el deficit de atenci\'f3n se puede controlar utilizando f\'e1rmacos que estimulan**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 La producci\'f3n de dopamina y se asocian con la falta de recompensa al ejecutar tareas.
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 51. **\'bfQu\'e9 codifican las neuronas dopamin\'e9rgicas de la substancia negra parte compacta?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 Estan asociadas con el aprendizaje y se alteran sustancialmente en casos de enfermedad de
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 Parkinson y epilepsia.
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 52. **\'bfPor qu\'e9 H.M. pod\'eda aprender a resolver las torres de Hanoi a pesar de que no pod\'eda almacenar memorias a largo plazo?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 53. **\'bfQue importancia tiene el juego en nuestro desarrollo?**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 desarrollan su coordinaci\'f3n psicomotriz y la motricidad gruesa y fina
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 54. **Explica el modelo Mirror Neuron System**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 Las neuronas espejo o especulares se activan cuando un individuo ejecuta una acci\'f3n que ha
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 visto ejecutar por un individuo de su misma especie o parecida. Estan asociadas con la empat\'eda
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 y con la imitaci\'f3n. Por tanto estan relacionadas con las capacidades cognitivas asociadas con la
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 vida social.
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 55. **\'bfEn que consiste la segunda hip\'f3tesis de las neuronas espejo y la evoluci\'f3n del lenguaje**
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 Existen proponentes de la hipotesis de que la accion y la imitacion son requisitos del lenguaje.
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 Presentan que por tanto las neuronas espejo son fundamentales y que lo que inicio como un
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 sistema de pantomimas evolucion\'f3 en los humanos para asumir formas mas simbolicas para
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 incluir elementos como el tiempo y lugar. Esta misma capacidad de imitaci\'f3n llevo a la
+\f1\fs24 \
+
+\f0\fs29\fsmilli14667 incorporacion de elementos faciales y vocales y por tanto del lenguaje.
+\f1\fs24 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \
+\
+}
